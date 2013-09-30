@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void bubble(int*, int);
 void insertion(int*, int);
@@ -19,7 +20,7 @@ void heap(int*, int);
 
 void printV(int* v, int n);
 
-int main(void) {
+int main(int argc, const char* argv[]) {
 
 	int n = 10;
 	int i;
@@ -35,11 +36,26 @@ int main(void) {
 		printf("%d ", v[i]);
 	}
 
-	//bubble(v, n);
-	//insertion(v, n);
-	//merge(v, 0, n - 1);
-	//quick(v, 0, n - 1);
-	heap(v, n); //não funfando ainda
+	if (strcmp(argv[1], "-b") == 0) {
+		printf("\nBubble:\n");
+		bubble(v, n);
+	}
+	if (strcmp(argv[1], "-i") == 0) {
+		printf("\nInsertion:\n");
+		insertion(v, n);
+	}
+	if (strcmp(argv[1], "-m") == 0) {
+		printf("\nMerge:\n");
+		merge(v, 0, n - 1);
+	}
+	if (strcmp(argv[1], "-q") == 0) {
+		printf("\nQuick:\n");
+		quick(v, 0, n - 1);
+	}
+	if (strcmp(argv[1], "-h") == 0) {
+		printf("\nHeap:\n");
+		heap(v, n);
+	}
 
 	printV(v, n);
 
@@ -48,7 +64,6 @@ int main(void) {
 
 void printV(int* v, int n) {
 	int i;
-	printf("\nDepois:\n");
 	for (i = 0; i < n; i++) {
 		printf("%d ", v[i]);
 	}
