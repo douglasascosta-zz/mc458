@@ -25,13 +25,12 @@ void merge2(int *v, int inicio, int meio, int fim) {
 	vetorTemp = (int *) malloc(sizeof(int) * (fim - inicio + 1));
 
 	while (i < meio + 1 || j < fim + 1) {
-		if (i == meio + 1) { // i passou do final da primeira metade, pegar v[j]
+		if (i == meio + 1) { 
 			vetorTemp[k] = v[j];
 			j++;
 			k++;
 		} else {
 			if (j == fim + 1) {
-				// j passou do final da segunda metade, pegar v[i]
 				vetorTemp[k] = v[i];
 				i++;
 				k++;
@@ -49,7 +48,6 @@ void merge2(int *v, int inicio, int meio, int fim) {
 		}
 
 	}
-	// copia vetor intercalado para o vetor original
 	for (i = inicio; i <= fim; i++) {
 		v[i] = vetorTemp[i - inicio];
 	}
