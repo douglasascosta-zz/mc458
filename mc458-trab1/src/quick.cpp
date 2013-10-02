@@ -2,40 +2,40 @@
 
 int particiona(int*, int, int);
 
-void quick(int* a, int l, int r) {
+void quick(int* v, int l, int r) {
 	int j;
 
 	if (l < r) {
 		// divide and conquer
-		j = particiona(a, l, r);
-		quick(a, l, j - 1);
-		quick(a, j + 1, r);
+		j = particiona(v, l, r);
+		quick(v, l, j - 1);
+		quick(v, j + 1, r);
 	}
 
 }
 
-int particiona(int* a, int l, int r) {
+int particiona(int* v, int l, int r) {
 	int pivot, i, j, t;
-	pivot = a[l];
+	pivot = v[l];
 	i = l;
 	j = r + 1;
 
-	while (1) {
+	while (true) {
 		do
 			++i;
-		while (a[i] <= pivot && i <= r);
+		while (v[i] <= pivot && i <= r);
 		do
 			--j;
-		while (a[j] > pivot);
+		while (v[j] > pivot);
 		if (i >= j)
 			break;
-		t = a[i];
-		a[i] = a[j];
-		a[j] = t;
+		t = v[i];
+		v[i] = v[j];
+		v[j] = t;
 	}
-	t = a[l];
-	a[l] = a[j];
-	a[j] = t;
+	t = v[l];
+	v[l] = v[j];
+	v[j] = t;
 	return j;
 }
 
