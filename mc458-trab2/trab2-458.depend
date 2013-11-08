@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1383614601 source:c:\users\rosani\desktop\douglas\458\trab2-458\editdistancea.cpp
+	<iostream>
+	<string>
+	<map>
+
